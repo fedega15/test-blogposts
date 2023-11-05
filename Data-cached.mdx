@@ -14,5 +14,5 @@ Next.js has a built-in Data Cache that persists the result of data fetches acros
 - The first time a fetch request is called during rendering, Next.js checks the Data Cache for a cached response.
 - If a cached response is found, it's returned immediately and memoized.
 - If a cached response is not found, the request is made to the data source, the result is stored in the Data Cache, and memoized.
-- For uncached data (e.g. { cache 'no-store' }), the result is always fetched from the data source, and memoized.
+- For uncached data , the result is always fetched from the data source, and memoized.
 - Whether the data is cached or uncached, the requests are always memoized to avoid making duplicate requests for the same data during a React render pass.
