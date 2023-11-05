@@ -1,6 +1,6 @@
 ---
-title: 'Just Testing'
-date: '2023-04-28'
+title: 'This Static Generation'
+date: '2023-04-18'
 tags: ['next.js','nextjs','new']
 ---
 
@@ -26,3 +26,8 @@ You should ask yourself: "Can I pre-render this page **ahead** of a user's reque
 On the other hand, Static Generation is **not** a good idea if you cannot pre-render a page ahead of a user's request. Maybe your page shows frequently updated data, and the page content changes on every request.
 
 In that case, you can use **Server-Side Rendering**. It will be slower, but the pre-rendered page will always be up-to-date. Or you can skip pre-rendering and use client-side JavaScript to populate data.
+
+**Static Rendering (Default)**
+With Static Rendering, routes are rendered at build time, or in the background after data revalidation. The result is cached and can be pushed to a Content Delivery Network (CDN). This optimization allows you to share the result of the rendering work between users and server requests.
+
+Static rendering is useful when a route has data that is not personalized to the user and can be known at build time, such as a static blog post or a product page.
