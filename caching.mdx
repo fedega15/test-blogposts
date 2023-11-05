@@ -1,0 +1,15 @@
+---
+title: 'Post for Caching'
+date: '2023-05-03'
+tags: ['next.js','nextjs','stuff']
+---
+
+# Data Caching
+<CustomImage src="https://raw.githubusercontent.com/fedega15/test-blogposts/main/images/NextLevel1.png" alt="ChatGPT provides the benefits of Static-Site Generation" />
+<CustomImage src="https://raw.githubusercontent.com/fedega15/test-blogposts/main/images/caching-overview.avif" alt="ChatGPT provides the benefits of Static-Site Generation" />
+
+Next.js improves your application's performance and reduces costs by caching rendering work and data requests. This page provides an in-depth look at Next.js caching mechanisms, the APIs you can use to configure them, and how they interact with each other.
+
+y default, Next.js will cache as much as possible to improve performance and reduce cost. This means routes are statically rendered and data requests are cached unless you opt out. The diagram below shows the default caching behavior: when a route is statically rendered at build time and when a static route is first visited.
+
+Caching behavior changes depending on whether the route is statically or dynamically rendered, data is cached or uncached, and whether a request is part of an initial visit or a subsequent navigation. Depending on your use case, you can configure the caching behavior for individual routes and data requests.
