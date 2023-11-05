@@ -5,4 +5,30 @@ tags: ['next.js','nextjs','stuff']
 ---
 
 
-# Data Revaldidate
+# Data Revalidating
+
+Cached data can be revalidated in two ways, with:
+
+- Time-based Revalidation: Revalidate data after a certain amount of time has passed and a new request is made. This is useful for data that changes infrequently and freshness is not as critical.
+- On-demand Revalidation: Revalidate data based on an event (e.g. form submission). On-demand revalidation can use a tag-based or path-based approach to revalidate groups of data at once. This is useful when you want to ensure the latest data is shown as soon as possible (e.g. when content from your headless CMS is updated).
+
+
+# Time-based Revalidation
+To revalidate data at a timed interval, you can use the next.revalidate option of fetch to set the cache lifetime of a resource (in seconds).
+```ts
+// Revalidate at most every hour
+fetch('https://...', { next: { revalidate: 3600 } })
+```
+Alternatively, you can use Route Segment Config options to configure all fetch requests in a segment or for cases where you're not able to use fetch.
+
+# On-demand Revalidation
+Data can be revalidated on-demand by path (revalidatePath) or by cache tag (revalidateTag).
+
+How On-Demand Revalidation Works
+
+<CustomImage src="https://raw.githubusercontent.com/fedega15/test-blogposts/main/images/on-demand-revalidation.avif" alt="ChatGPT provides the benefits of Static-Site Generation" />
+
+- The first time a fetch request is called, the data will be fetched from the external data source and stored in the Data Cache.
+- When an on-demand revalidation is triggered, the appropriate cache entries will be purged from the cache.
+- This is different from time-based revalidation, which keeps the stale data in the cache until the fresh data is fetched.
+- The next time a request is made, it will be a cache MISS again, and the data will be fetched from the external data source and stored in the Data Cache.
